@@ -52,12 +52,12 @@ section {
   margin: 2em 0;
 }
 
-.floorplan-image {
+.buildings-image {
   position: relative;
   display: inline-block;
 }
 
-.floorplan-image img {
+.buildings-image img {
   width: 100%;
   height: auto;
 }
