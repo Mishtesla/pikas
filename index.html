@@ -1,48 +1,47 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="no">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pikas Real Estate Project</title>
+    <title>Leangen Bukta</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <header>
         <div class="logo">
-            <img src="images/logo.jpg" alt="Pikas Logo">
+            <img src="images/logo.jpg" alt="Leangen Bukta Logo">
         </div>
         <nav>
             <ul>
+                <li><a href="#interest">MELD INTERESSE</a></li>
                 <li><a href="#boligvelger">BOLIGVELGER</a></li>
                 <li><a href="#prospekter">PROSPEKTER</a></li>
+                <li><a href="#project">OM PROSJEKTET</a></li>
+                <li><a href="#news">AKTUELT</a></li>
+                <li><a href="#portal">KUNDEPORTAL</a></li>
             </ul>
         </nav>
     </header>
     <main>
         <section id="home">
-            <h2>Welcome to Pikas Real Estate</h2>
-            <p>Discover your dream home with us. Explore our beautiful buildings and find the perfect apartment.</p>
+            <h1>Velkommen til Leangen Bukta</h1>
+            <p>Oppdag ditt drømmehjem hos oss. Utforsk våre vakre bygninger og finn den perfekte leiligheten.</p>
         </section>
         <section id="buildings">
-            <h2>Our Buildings</h2>
+            <h2>Våre Bygninger</h2>
             <div class="building" onclick="openBuilding(1)">
-                <img src="images/building1.JPG" alt="Building 1">
-                <p>Building 1</p>
+                <div class="placeholder">Bygning 1</div>
+                <p>Bygning 1</p>
             </div>
             <div class="building" onclick="openBuilding(2)">
-                <img src="images/building2.JPG" alt="Building 2">
-                <p>Building 2</p>
+                <div class="placeholder">Bygning 2</div>
+                <p>Bygning 2</p>
             </div>
-            <!-- Add more buildings as needed -->
-        </section>
-        <section id="building-details" style="display: none;">
-            <h2>Building <span id="building-id"></span></h2>
-            <img id="floorplan" src="" alt="Building Floorplan">
-            <div id="apartment-links"></div>
+            <!-- Legg til flere bygninger etter behov -->
         </section>
     </main>
     <footer>
-        <p>Contact us at info@pikasrealestate.com</p>
+        <p>Kontakt oss på info@leangenbukta.no</p>
     </footer>
     <script src="script.js"></script>
 </body>

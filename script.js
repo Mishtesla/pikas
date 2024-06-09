@@ -17,5 +17,4 @@ function openBuilding(buildingId) {
 
 function openApartment(buildingId, apartmentId) {
   alert(`Opening details for Apartment ${apartmentId} in Building ${buildingId}`);
-  // Implement the function to display apartment details
 }

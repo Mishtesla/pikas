@@ -8,15 +8,14 @@ header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background-color: #fff;  /* Ensure this matches the exact background color */
-  padding: 0.5em 2em;
+  background-color: #fff;
+  padding: 1em 2em;
   border-bottom: 1px solid #ccc;
 }
 
 .logo img {
-  height: 20px;  /* Set the desired height */
-  width: auto;   /* Maintain aspect ratio */
-  max-height: 50px;
+  height: 30px;  /* Adjust the height to make the logo smaller */
+  width: auto;
 }
 
 nav ul {
@@ -33,14 +32,14 @@ nav ul li {
 
 nav ul li a {
   text-decoration: none;
-  color: #5a3e2e; /* Use the same color from the screenshot */
+  color: #5a3e2e;
   font-weight: bold;
   font-size: 1em;
 }
 
 nav ul li a:hover,
 nav ul li a:focus {
-  border-bottom: 2px solid #5a3e2e; /* Add underline on hover and focus */
+  border-bottom: 2px solid #5a3e2e;
 }
 
 main {
@@ -58,19 +57,14 @@ section {
   cursor: pointer;
 }
 
-.building img {
+.building .placeholder {
   width: 200px;
-  height: auto;
-}
-
-#building-details {
-  display: none;
-}
-
-#floorplan {
-  width: 600px;
-  height: auto;
-  margin-top: 1em;
+  height: 200px;
+  background-color: #ccc;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid #999;
 }
 
 footer {
