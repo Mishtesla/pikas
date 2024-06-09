@@ -16,6 +16,7 @@ header {
 .logo img {
   height: 20px;  /* Set the desired height */
   width: auto;   /* Maintain aspect ratio */
+  max-height: 50px;
 }
 
 nav ul {
