@@ -13,9 +13,9 @@
         </div>
         <nav>
             <ul>
-                <li><a href="#boligvelger">BOLIGVELGER</a></li>
-                <li><a href="#prospekter">PROSPEKTER</a></li>
-                <li><a href="#project">OM PROSJEKTET</a></li>
+                <li><a href="boligvelger.html">Boligvelger</a></li>
+                <li><a href="#prospekter">Prospekter</a></li>
+                <li><a href="#project">Om Prosjektet</a></li>
             </ul>
         </nav>
     </header>
@@ -27,15 +27,15 @@
         <section id="buildings">
             <h2>Våre Bygninger</h2>
             <div class="buildings-image">
-                <img src="images/buildings.jpg" alt="6 Moderne Bygninger">
-                <div class="building-buttons">
-                    <button onclick="location.href='pikas6_16.html'" class="building-button" style="top: 10%; left: 10%;">Pikås 6-16</button>
-                    <button onclick="location.href='pikas20.html'" class="building-button" style="top: 10%; left: 30%;">Pikås 20</button>
-                    <button onclick="location.href='pikas15_23.html'" class="building-button" style="top: 10%; left: 50%;">Pikås 15-23</button>
-                    <button onclick="location.href='pikas27_33.html'" class="building-button" style="top: 10%; left: 70%;">Pikås 27-33</button>
-                    <button onclick="location.href='pikas35.html'" class="building-button" style="top: 50%; left: 20%;">Pikås 35</button>
-                    <button onclick="location.href='pikas37.html'" class="building-button" style="top: 50%; left: 40%;">Pikås 37</button>
-                </div>
+                <img src="images/buildings.jpg" alt="6 Moderne Bygninger" usemap="#buildings-map">
+                <map name="buildings-map">
+                    <area shape="rect" coords="100,50,200,150" href="pikas6_16.html" alt="Pikås 6-16">
+                    <area shape="rect" coords="220,50,320,150" href="pikas20.html" alt="Pikås 20">
+                    <area shape="rect" coords="340,50,440,150" href="pikas15_23.html" alt="Pikås 15-23">
+                    <area shape="rect" coords="460,50,560,150" href="pikas27_33.html" alt="Pikås 27-33">
+                    <area shape="rect" coords="100,200,200,300" href="pikas35.html" alt="Pikås 35">
+                    <area shape="rect" coords="220,200,320,300" href="pikas37.html" alt="Pikås 37">
+                </map>
             </div>
         </section>
     </main>
