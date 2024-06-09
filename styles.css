@@ -9,12 +9,12 @@ header {
   justify-content: space-between;
   align-items: center;
   background-color: #fff;
-  padding: 1em 2em;
+  padding: 0.5em 2em;
   border-bottom: 1px solid #ccc;
 }
 
 .logo img {
-  height: 40px;  /* Adjust the height to make the logo smaller */
+  height: 30px;  /* Adjust the height to make the logo smaller */
 }
 
 nav ul {
@@ -22,17 +22,18 @@ nav ul {
   margin: 0;
   padding: 0;
   display: flex;
+  align-items: center;
 }
 
 nav ul li {
-  margin-left: 2em;
+  margin-left: 1.5em;
 }
 
 nav ul li a {
   text-decoration: none;
   color: #5a3e2e; /* Use the same color from the screenshot */
   font-weight: bold;
-  font-size: 1.1em;
+  font-size: 1em;
 }
 
 nav ul li a:hover,
