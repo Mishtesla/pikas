@@ -14,7 +14,8 @@ header {
 }
 
 .logo img {
-  height: 30px;  /* Adjust the height to make the logo smaller */
+  height: 5px; /* Adjust the height to make the logo smaller */
+  width: 5px;  
 }
 
 nav ul {
