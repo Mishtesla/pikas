@@ -1,5 +1,5 @@
 body {
-  font-family: Arial, sans-serif;
+  font-family: 'Helvetica Neue', Arial, sans-serif;
   margin: 0;
   padding: 0;
 }
@@ -33,9 +33,9 @@ nav ul li {
 nav ul li a {
   text-decoration: none;
   color: #5a3e2e;
-  font-weight: 600;  /* Adjust the font weight */
-  font-size: 1em;  /* Adjust the font size */
-  letter-spacing: 0.05em;  /* Adjust the letter spacing */
+  font-weight: 500;
+  font-size: 0.9em;
+  letter-spacing: 0.05em;
 }
 
 nav ul li a:hover,
@@ -46,6 +46,7 @@ nav ul li a:focus {
 #interest a {
   border: 1px solid #5a3e2e;
   padding: 0.5em 1em;
+  font-size: 0.9em;
 }
 
 main {
@@ -63,14 +64,9 @@ section {
   cursor: pointer;
 }
 
-.building .placeholder {
+.building img {
   width: 200px;
-  height: 200px;
-  background-color: #ccc;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  border: 1px solid #999;
+  height: auto;
 }
 
 footer {
