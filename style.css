@@ -14,7 +14,7 @@ header {
 }
 
 .logo img {
-  height: 30px;  /* Adjust the height to make the logo smaller */
+  height: 40px;  /* Adjust the height to make the logo smaller */
   width: auto;
 }
 
@@ -27,19 +27,25 @@ nav ul {
 }
 
 nav ul li {
-  margin-left: 1.5em;
+  margin-left: 2em;
 }
 
 nav ul li a {
   text-decoration: none;
   color: #5a3e2e;
-  font-weight: bold;
-  font-size: 1em;
+  font-weight: 600;  /* Adjust the font weight */
+  font-size: 1em;  /* Adjust the font size */
+  letter-spacing: 0.05em;  /* Adjust the letter spacing */
 }
 
 nav ul li a:hover,
 nav ul li a:focus {
   border-bottom: 2px solid #5a3e2e;
+}
+
+#interest a {
+  border: 1px solid #5a3e2e;
+  padding: 0.5em 1em;
 }
 
 main {
