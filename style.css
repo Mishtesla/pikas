@@ -104,3 +104,101 @@ footer {
   padding: 1em;
   text-align: center;
 }
+
+body {
+  font-family: 'Helvetica Neue', Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #fff;
+  padding: 1em 2em;
+  border-bottom: 1px solid #ccc;
+}
+
+.logo img {
+  height: 40px;
+  width: auto;
+}
+
+nav ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  align-items: center;
+}
+
+nav ul li {
+  margin-left: 2em;
+}
+
+nav ul li a {
+  text-decoration: none;
+  color: #5a3e2e;
+  font-weight: 500;
+  font-size: 0.9em;
+  letter-spacing: 0.05em;
+}
+
+nav ul li a:hover,
+nav ul li a:focus {
+  border-bottom: 2px solid #5a3e2e;
+}
+
+main {
+  padding: 2em;
+  text-align: center;
+}
+
+section {
+  margin: 2em 0;
+}
+
+#sales-material {
+  background-color: #e0d6c8;
+  padding: 2em;
+  border-radius: 8px;
+}
+
+#sales-material h1 {
+  font-size: 2em;
+  color: #333;
+}
+
+#sales-material p {
+  font-size: 1.1em;
+  color: #666;
+}
+
+.button-container {
+  margin-top: 2em;
+}
+
+.btn {
+  display: inline-block;
+  background-color: #b56a3a;
+  color: #fff;
+  padding: 0.75em 1.5em;
+  text-decoration: none;
+  font-size: 1em;
+  margin: 0.5em;
+  border-radius: 4px;
+  transition: background-color 0.3s;
+}
+
+.btn:hover {
+  background-color: #994c29;
+}
+
+footer {
+  background-color: #333;
+  color: #fff;
+  padding: 1em;
+  text-align: center;
+}
+
