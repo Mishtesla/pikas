@@ -25,4 +25,24 @@
         <section id="buildings">
             <h2>Our Buildings</h2>
             <div class="building" onclick="openBuilding(1)">
-                <img src="images/building1.jpg" alt="Building 1
+                <img src="images/building1.jpg" alt="Building 1">
+                <p>Building 1</p>
+            </div>
+            <div class="building" onclick="openBuilding(2)">
+                <img src="images/building2.jpg" alt="Building 2">
+                <p>Building 2</p>
+            </div>
+            <!-- Add more buildings as needed -->
+        </section>
+        <section id="building-details" style="display: none;">
+            <h2>Building <span id="building-id"></span></h2>
+            <img id="floorplan" src="" alt="Building Floorplan">
+            <div id="apartment-links"></div>
+        </section>
+    </main>
+    <footer>
+        <p>Contact us at info@pikasrealestate.com</p>
+    </footer>
+    <script src="script.js"></script>
+</body>
+</html>
