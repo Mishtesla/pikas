@@ -3,45 +3,40 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pikås</title>
-    <link rel="stylesheet" href="style.css">
+    <title>Pikås 6-16 Floor Plan</title>
+    <link rel="stylesheet" href="../style.css">
 </head>
 <body>
     <header>
         <div class="logo">
-            <img src="images/logo.jpg" alt="Pikås Logo">
+            <img src="../images/logo.jpg" alt="Pikås Logo">
         </div>
         <nav>
             <ul>
-                <li><a href="#boligvelger">BOLIGVELGER</a></li>
-                <li><a href="#prospekter">PROSPEKTER</a></li>
-                <li><a href="#project">OM PROSJEKTET</a></li>
+                <li><a href="../index.html">Hjem</a></li>
+                <li><a href="../prospekter.html">Prospekter</a></li>
+                <li><a href="../om_prosjektet.html">Om Prosjektet</a></li>
             </ul>
         </nav>
     </header>
     <main>
-        <section id="home">
-            <h1>Velkommen til Pikås</h1>
-            <p>Oppdag ditt drømmehjem hos oss. Utforsk våre vakre bygninger og finn den perfekte leiligheten.</p>
-        </section>
-        <section id="buildings">
-            <h2>Våre Bygninger</h2>
-            <div class="buildings-image">
-                <img src="images/buildings.jpg" alt="6 Moderne Bygninger">
-                <div class="building-buttons">
-                    <button onclick="location.href='building1.html'" class="building-button" style="top: 10%; left: 20%;">Bygning 1</button>
-                    <button onclick="location.href='building2.html'" class="building-button" style="top: 10%; left: 40%;">Bygning 2</button>
-                    <button onclick="location.href='building3.html'" class="building-button" style="top: 10%; left: 60%;">Bygning 3</button>
-                    <button onclick="location.href='building4.html'" class="building-button" style="top: 10%; left: 80%;">Bygning 4</button>
-                    <button onclick="location.href='building5.html'" class="building-button" style="top: 50%; left: 20%;">Bygning 5</button>
-                    <button onclick="location.href='building6.html'" class="building-button" style="top: 50%; left: 40%;">Bygning 6</button>
-                </div>
+        <section id="floorplan">
+            <h1>Plantegning Pikås 6-16</h1>
+            <div class="floorplan-image">
+                <img src="../drawings/pikas6-16.jpg" alt="Pikås 6-16 Floor Plan" usemap="#floorplan-map">
+                <map name="floorplan-map">
+                    <area shape="rect" coords="10,10,110,110" href="../apartments/apartment6.html" alt="Apartment 6">
+                    <area shape="rect" coords="120,10,220,110" href="../apartments/apartment8.html" alt="Apartment 8">
+                    <area shape="rect" coords="230,10,330,110" href="../apartments/apartment10.html" alt="Apartment 10">
+                    <area shape="rect" coords="10,120,110,220" href="../apartments/apartment12.html" alt="Apartment 12">
+                    <area shape="rect" coords="120,120,220,220" href="../apartments/apartment14.html" alt="Apartment 14">
+                    <area shape="rect" coords="230,120,330,220" href="../apartments/apartment16.html" alt="Apartment 16">
+                </map>
             </div>
         </section>
     </main>
     <footer>
         <p>Kontakt oss på info@pikas.no</p>
     </footer>
-    <script src="script.js"></script>
 </body>
 </html>

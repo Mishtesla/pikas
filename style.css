@@ -52,31 +52,14 @@ section {
   margin: 2em 0;
 }
 
-.buildings-image {
+.floorplan-image {
   position: relative;
   display: inline-block;
 }
 
-.buildings-image img {
+.floorplan-image img {
   width: 100%;
   height: auto;
-}
-
-.building-buttons {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-}
-
-.building-button {
-  position: absolute;
-  background-color: rgba(255, 255, 255, 0.8);
-  border: 1px solid #5a3e2e;
-  padding: 5px 10px;
-  font-size: 0.8em;
-  cursor: pointer;
 }
 
 footer {
@@ -84,7 +67,4 @@ footer {
   color: #fff;
   padding: 1em;
   text-align: center;
-  position: fixed;
-  width: 100%;
-  bottom: 0;
 }
