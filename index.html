@@ -1,51 +1,28 @@
 <!DOCTYPE html>
-<html lang="no">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pikås</title>
-    <link rel="stylesheet" href="style.css">
+  <title>Tibber Energy Data</title>
 </head>
 <body>
-    <header>
-        <div class="logo">
-            <a href="index.html">
-                <img src="images/logo.jpg" alt="Pikås Logo">
-            </a>
-        </div>
-        <nav>
-            <ul>
-                <li><a href="boligvelger.html">Boligvelger</a></li>
-                <li><a href="prospekter.html">Prospekter</a></li>
-               
-                
-                
-            </ul>
-        </nav>
-    </header>
-    <main>
-        <section id="home">
-            <h1>Velkommen til Pikås</h1>
-            <p>Oppdag ditt drømmehjem hos oss. Utforsk våre vakre bygninger og finn den perfekte leiligheten.</p>
-        </section>
-        <section id="buildings">
-            <h2>Våre Bygninger</h2>
-            <div class="buildings-image">
-                <img src="images/buildings.jpg" alt="6 Moderne Bygninger" usemap="#buildings-map">
-                <map name="buildings-map">
-                    <area shape="rect" coords="10,10,110,110" href="pikas6_16.html" alt="Pikåsveien 6-16">
-                    <area shape="rect" coords="120,10,220,110" href="pikas20.html" alt="Pikåsveien 20">
-                    <area shape="rect" coords="230,10,330,110" href="pikas15_23.html" alt="Pikåsveien 15-23">
-                    <area shape="rect" coords="340,10,440,110" href="pikas27_33.html" alt="Pikåsveien 27-33">
-                    <area shape="rect" coords="10,120,110,220" href="pikas35.html" alt="Pikåsveien 35">
-                    <area shape="rect" coords="120,120,220,220" href="pikas37.html" alt="Pikåsveien 37">
-                </map>
-            </div>
-        </section>
-    </main>
-    <footer>
-        <p>Kontakt oss på info@pikas.no</p>
-    </footer>
-    <script src="script.js"></script>
+  <h1>Live Energy Data</h1>
+  <div id="energy-data"></div>
+
+  <script>
+    fetch('https://api.tibber.com/v1-beta/gql', {
+      method: 'POST',
+      headers: {
+        'Authorization': 'Bearer YOUR_ACCESS_TOKEN',
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({
+        query: `{ viewer { homes { currentSubscription { priceInfo { current { total } } } } } }`
+      })
+    })
+    .then(response => response.json())
+    .then(data => {
+      document.getElementById('energy-data').innerHTML = `Current Price: ${data.viewer.homes[0].currentSubscription.priceInfo.current.total} NOK/kWh`;
+    })
+    .catch(error => console.error('Error fetching data:', error));
+  </script>
 </body>
 </html>
