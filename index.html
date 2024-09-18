@@ -6,7 +6,7 @@
     <title>Tibber Energy Consumption</title>
 </head>
 <body>
-    <h1>Live Energy Consumption Data</h1>
+    <h1>Energy Consumption Details</h1>
     <div id="energy-data"></div>
 
     <script>
@@ -14,16 +14,22 @@
         const response = await fetch('https://api.tibber.com/v1-beta/gql', {
           method: 'POST',
           headers: {
-            'Authorization': '5K4MVS-OjfWhK_4yrjOlFe1F6kJXPVf7eQYggo8ebAE',
+            'Authorization': 'Bearer 5K4MVS-OjfWhK_4yrjOlFe1F6kJXPVf7eQYggo8ebAE',
             'Content-Type': 'application/json'
           },
           body: JSON.stringify({
             query: `{ 
               viewer { 
                 homes { 
-                  consumption(resolution: HOURLY, last: 1) { 
+                  consumption(resolution: HOURLY, last: 100) { 
                     nodes { 
-                      consumption 
+                      from
+                      to
+                      cost
+                      unitPrice
+                      unitPriceVAT
+                      consumption
+                      consumptionUnit
                     } 
                   } 
                 } 
@@ -34,8 +40,19 @@
 
         if (response.ok) {
           const data = await response.json();
-          const consumption = data.viewer.homes[0].consumption.nodes[0].consumption;
-          document.getElementById('energy-data').innerText = `Current Consumption: ${consumption} kWh`;
+          const nodes = data.viewer.homes[0].consumption.nodes;
+          let content = '';
+          nodes.forEach((node) => {
+            content += `
+              <p>From: ${node.from}, To: ${node.to}</p>
+              <p>Consumption: ${node.consumption} ${node.consumptionUnit}</p>
+              <p>Cost: ${node.cost} NOK</p>
+              <p>Unit Price (excl. VAT): ${node.unitPrice} NOK/kWh</p>
+              <p>Unit Price (incl. VAT): ${node.unitPriceVAT} NOK/kWh</p>
+              <hr>
+            `;
+          });
+          document.getElementById('energy-data').innerHTML = content;
         } else {
           document.getElementById('energy-data').innerText = 'Error fetching data';
         }
@@ -45,5 +62,3 @@
     </script>
 </body>
 </html>
-
-
