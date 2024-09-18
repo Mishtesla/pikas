@@ -3,10 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tibber Energy Data</title>
+    <title>Tibber Energy Consumption</title>
 </head>
 <body>
-    <h1>Live Energy Data</h1>
+    <h1>Live Energy Consumption Data</h1>
     <div id="energy-data"></div>
 
     <script>
@@ -18,13 +18,13 @@
             'Content-Type': 'application/json'
           },
           body: JSON.stringify({
-            query: `{ viewer { homes { currentSubscription { priceInfo { current { total } } } } } }`
+            query: `{ viewer { homes { consumption(resolution: HOURLY, last: 1) { nodes { consumption } } } } }`
           })
         });
 
         if (response.ok) {
           const data = await response.json();
-          document.getElementById('energy-data').innerText = `Current Price: ${data.viewer.homes[0].currentSubscription.priceInfo.current.total} NOK/kWh`;
+          document.getElementById('energy-data').innerText = `Current Consumption: ${data.viewer.homes[0].consumption.nodes[0].consumption} kWh`;
         } else {
           document.getElementById('energy-data').innerText = 'Error fetching data';
         }
@@ -34,3 +34,4 @@
     </script>
 </body>
 </html>
+
