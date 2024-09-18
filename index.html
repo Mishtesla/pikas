@@ -1,80 +1,40 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Live Energy Data</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login with Google</title>
+    <script src="https://accounts.google.com/gsi/client" async defer></script>
 </head>
 <body>
-  <h1>Live Energy Data</h1>
-  <div id="live-data"></div>
+    <h2>Login with Google</h2>
+    <div id="g_id_onload"
+        data-client_id="YOUR_GOOGLE_CLIENT_ID"
+        data-login_uri="YOUR_REDIRECT_URI"
+        data-ux_mode="popup"
+        data-callback="handleCredentialResponse"
+        data-auto_prompt="false">
+    </div>
 
-  <script>
-    async function setupWebSocket() {
-      // Directly set the WebSocket URL
-      const wsUrl = 'wss://websocket-api.tibber.com/v1-beta/gql/subscriptions';
-      const socket = new WebSocket(wsUrl);
+    <div class="g_id_signin"
+         data-type="standard"
+         data-size="large"
+         data-theme="outline"
+         data-text="sign_in_with"
+         data-shape="rectangular"
+         data-logo_alignment="left">
+    </div>
 
-      socket.onopen = () => {
-        console.log('WebSocket connection established');
-        const message = JSON.stringify({
-          type: 'connection_init',
-          payload: {
-            Authorization: 'Bearer 6MraYaGDqZnOzV2gz0jOgnrnTV0fXG65vaeeMtsggc4'
-          }
-        });
-        socket.send(message);
-
-        const subscription = JSON.stringify({
-          id: '1',
-          type: 'start',
-          payload: {
-            query: `subscription {
-              liveMeasurement(homeId:"cba5d658-1fc0-4f68-b5ea-09c39d531f23") {
-                timestamp
-                power
-                accumulatedConsumption
-                accumulatedCost
-                currency
-                minPower
-                averagePower
-                maxPower
-              }
-            }`
-          }
-        });
-        socket.send(subscription);
-      };
-
-      socket.onmessage = (event) => {
-        console.log('Received data:', event.data);
-        const data = JSON.parse(event.data);
-        if (data.type === 'data') {
-          const measurement = data.payload.data.liveMeasurement;
-          const displayData = `
-            <p>Timestamp: ${measurement.timestamp}</p>
-            <p>Power: ${measurement.power} W</p>
-            <p>Accumulated Consumption: ${measurement.accumulatedConsumption} kWh</p>
-            <p>Accumulated Cost: ${measurement.accumulatedCost || 'N/A'} ${measurement.currency || ''}</p>
-            <p>Min Power: ${measurement.minPower} W</p>
-            <p>Average Power: ${measurement.averagePower} W</p>
-            <p>Max Power: ${measurement.maxPower} W</p>
-            <hr>
-          `;
-          document.getElementById('live-data').innerHTML = displayData;
+    <script>
+        function handleCredentialResponse(response) {
+            const decoded = jwt_decode(response.credential);
+            if (decoded.hd === "msgeiendo.no") {
+                window.location.href = "google_sheet.html"; // Proceed to next page
+            } else {
+                alert("You must log in with an @msgeiendo.no account.");
+            }
         }
-      };
-
-      socket.onerror = (error) => {
-        console.error('WebSocket error:', error);
-      };
-
-      socket.onclose = () => {
-        console.log('WebSocket connection closed');
-      };
-    }
-
-    setupWebSocket();
-  </script>
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/jwt-decode/build/jwt-decode.min.js"></script>
 </body>
 </html>
