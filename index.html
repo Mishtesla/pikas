@@ -41,17 +41,25 @@
         if (response.ok) {
           const data = await response.json();
           const nodes = data.viewer.homes[0].consumption.nodes;
+
           let content = '';
           nodes.forEach((node) => {
-            content += `
-              <p>From: ${node.from}, To: ${node.to}</p>
-              <p>Consumption: ${node.consumption} ${node.consumptionUnit}</p>
-              <p>Cost: ${node.cost} NOK</p>
-              <p>Unit Price (excl. VAT): ${node.unitPrice} NOK/kWh</p>
-              <p>Unit Price (incl. VAT): ${node.unitPriceVAT} NOK/kWh</p>
-              <hr>
-            `;
+            if (node.consumption !== null) {
+              content += `
+                <p>From: ${node.from}, To: ${node.to}</p>
+                <p>Consumption: ${node.consumption} ${node.consumptionUnit}</p>
+                <p>Cost: ${node.cost ? node.cost.toFixed(2) : 'N/A'} NOK</p>
+                <p>Unit Price (excl. VAT): ${node.unitPrice ? node.unitPrice.toFixed(4) : 'N/A'} NOK/kWh</p>
+                <p>Unit Price (incl. VAT): ${node.unitPriceVAT ? node.unitPriceVAT.toFixed(4) : 'N/A'} NOK/kWh</p>
+                <hr>
+              `;
+            }
           });
+
+          if (content === '') {
+            content = 'No consumption data available for the selected time period.';
+          }
+
           document.getElementById('energy-data').innerHTML = content;
         } else {
           document.getElementById('energy-data').innerText = 'Error fetching data';
