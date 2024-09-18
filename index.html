@@ -11,7 +11,7 @@
 
   <script>
     async function setupWebSocket() {
-      // Set the WebSocket connection manually (you could also fetch it dynamically from Tibber API as before)
+      // Directly set the WebSocket URL
       const wsUrl = 'wss://websocket-api.tibber.com/v1-beta/gql/subscriptions';
       const socket = new WebSocket(wsUrl);
 
