@@ -18,13 +18,24 @@
             'Content-Type': 'application/json'
           },
           body: JSON.stringify({
-            query: `{ viewer { homes { consumption(resolution: HOURLY, last: 1) { nodes { consumption } } } } }`
+            query: `{ 
+              viewer { 
+                homes { 
+                  consumption(resolution: HOURLY, last: 1) { 
+                    nodes { 
+                      consumption 
+                    } 
+                  } 
+                } 
+              } 
+            }`
           })
         });
 
         if (response.ok) {
           const data = await response.json();
-          document.getElementById('energy-data').innerText = `Current Consumption: ${data.viewer.homes[0].consumption.nodes[0].consumption} kWh`;
+          const consumption = data.viewer.homes[0].consumption.nodes[0].consumption;
+          document.getElementById('energy-data').innerText = `Current Consumption: ${consumption} kWh`;
         } else {
           document.getElementById('energy-data').innerText = 'Error fetching data';
         }
@@ -34,4 +45,5 @@
     </script>
 </body>
 </html>
+
 
