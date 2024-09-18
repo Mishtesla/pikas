@@ -10,65 +10,90 @@
   <div id="live-data"></div>
 
   <script>
-    const socket = new WebSocket('wss://websocket-api.tibber.com/v1-beta/gql/subscriptions');
-
-    socket.onopen = () => {
-      console.log('WebSocket connection established');
-
-      const message = JSON.stringify({
-        type: 'connection_init',
-        payload: {
-          Authorization: 'Bearer 5K4MVS-OjfWhK_4yrjOlFe1F6kJXPVf7eQYggo8ebAE'
-        }
-      });
-      socket.send(message);
-
-      const subscription = JSON.stringify({
-        id: '1',
-        type: 'start',
-        payload: {
-          query: `subscription {
-            liveMeasurement(homeId:"6MraYaGDqZnOzV2gz0jOgnrnTV0fXG65vaeeMtsggc4") {
-              timestamp
-              power
-              accumulatedConsumption
-              accumulatedCost
-              currency
-              minPower
-              averagePower
-              maxPower
+    async function getWebSocketUrl() {
+      const response = await fetch('https://api.tibber.com/v1-beta/gql', {
+        method: 'POST',
+        headers: {
+          'Authorization': 'Bearer 6MraYaGDqZnOzV2gz0jOgnrnTV0fXG65vaeeMtsggc4',
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+          query: `{
+            viewer {
+              websocketSubscriptionUrl
             }
           }`
-        }
+        })
       });
-      socket.send(subscription);
-    };
+      const data = await response.json();
+      return data.viewer.websocketSubscriptionUrl;
+    }
 
-    socket.onmessage = (event) => {
-      const data = JSON.parse(event.data);
-      if (data.type === 'data') {
-        const measurement = data.payload.data.liveMeasurement;
-        const displayData = `
-          <p>Timestamp: ${measurement.timestamp}</p>
-          <p>Power: ${measurement.power} W</p>
-          <p>Accumulated Consumption: ${measurement.accumulatedConsumption} kWh</p>
-          <p>Accumulated Cost: ${measurement.accumulatedCost} ${measurement.currency}</p>
-          <p>Min Power: ${measurement.minPower} W</p>
-          <p>Average Power: ${measurement.averagePower} W</p>
-          <p>Max Power: ${measurement.maxPower} W</p>
-          <hr>
-        `;
-        document.getElementById('live-data').innerHTML = displayData;
-      }
-    };
+    async function setupWebSocket() {
+      const wsUrl = await getWebSocketUrl();
+      const socket = new WebSocket(wsUrl);
 
-    socket.onerror = (error) => {
-      console.error('WebSocket error:', error);
-    };
+      socket.onopen = () => {
+        console.log('WebSocket connection established');
 
-    socket.onclose = () => {
-      console.log('WebSocket connection closed');
-    };
+        const message = JSON.stringify({
+          type: 'connection_init',
+          payload: {
+            Authorization: 'Bearer 6MraYaGDqZnOzV2gz0jOgnrnTV0fXG65vaeeMtsggc4'
+          }
+        });
+        socket.send(message);
+
+        const subscription = JSON.stringify({
+          id: '1',
+          type: 'start',
+          payload: {
+            query: `subscription {
+              liveMeasurement(homeId:"cba5d658-1fc0-4f68-b5ea-09c39d531f23") {
+                timestamp
+                power
+                accumulatedConsumption
+                accumulatedCost
+                currency
+                minPower
+                averagePower
+                maxPower
+              }
+            }`
+          }
+        });
+        socket.send(subscription);
+      };
+
+      socket.onmessage = (event) => {
+        console.log('Received data:', event.data);
+        const data = JSON.parse(event.data);
+        if (data.type === 'data') {
+          const measurement = data.payload.data.liveMeasurement;
+          const displayData = `
+            <p>Timestamp: ${measurement.timestamp}</p>
+            <p>Power: ${measurement.power} W</p>
+            <p>Accumulated Consumption: ${measurement.accumulatedConsumption} kWh</p>
+            <p>Accumulated Cost: ${measurement.accumulatedCost} ${measurement.currency}</p>
+            <p>Min Power: ${measurement.minPower} W</p>
+            <p>Average Power: ${measurement.averagePower} W</p>
+            <p>Max Power: ${measurement.maxPower} W</p>
+            <hr>
+          `;
+          document.getElementById('live-data').innerHTML = displayData;
+        }
+      };
+
+      socket.onerror = (error) => {
+        console.error('WebSocket error:', error);
+      };
+
+      socket.onclose = () => {
+        console.log('WebSocket connection closed');
+      };
+    }
+
+    setupWebSocket();
   </script>
 </body>
 </html>
