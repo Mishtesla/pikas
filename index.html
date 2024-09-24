@@ -2,120 +2,84 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Your Name | Professional Title</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-        }
-        header {
-            background-color: #2C3E50;
-            color: white;
-            padding: 40px 0;
-            text-align: center;
-        }
-        nav {
-            background-color: #34495E;
-            overflow: hidden;
-        }
-        nav a {
-            float: left;
-            display: block;
-            color: #F2F2F2;
-            text-align: center;
-            padding: 14px 16px;
-            text-decoration: none;
-        }
-        nav a:hover {
-            background-color: #1ABC9C;
-            color: white;
-        }
-        .container {
-            padding: 20px;
-        }
-        .section {
-            margin-bottom: 40px;
-        }
-        h2 {
-            color: #2C3E50;
-            border-bottom: 2px solid #1ABC9C;
-            padding-bottom: 10px;
-        }
-        footer {
-            background-color: #2C3E50;
-            color: white;
-            text-align: center;
-            padding: 20px 0;
-        }
-        .social-icons a {
-            color: #F2F2F2;
-            margin: 0 10px;
-            text-decoration: none;
-        }
-        .social-icons a:hover {
-            color: #1ABC9C;
-        }
-    </style>
+    <title>MSG EIENDOM</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Link to CSS -->
+    <link rel="stylesheet" href="styles.css">
+    <!-- Font Awesome for icons (optional) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" integrity="sha384-K6LoECgZljjv3mqGZAAF9PCkTiWgB3kUnN48VxIhPrGwNlepi8BwHAd1XlXcd4TW" crossorigin="anonymous">
 </head>
 <body>
-
-<header>
-    <h1>Your Name</h1>
-    <p>Professional Title | Specialization</p>
-</header>
-
-<nav>
-    <a href="#about">About Me</a>
-    <a href="#experience">Experience</a>
-    <a href="#skills">Skills</a>
-    <a href="#contact">Contact</a>
-</nav>
-
-<div class="container">
-
-    <div id="about" class="section">
-        <h2>About Me</h2>
-        <p>Write a brief introduction about yourself here. Mention your background, passions, and what drives you in your professional career.</p>
-    </div>
-
-    <div id="experience" class="section">
-        <h2>Experience</h2>
-        <h3>Job Title at Company Name</h3>
-        <p><em>Start Date – End Date</em></p>
-        <ul>
-            <li>Describe your key responsibilities and achievements.</li>
-            <li>Use bullet points for clarity.</li>
-        </ul>
-        <!-- Repeat for other positions -->
-    </div>
-
-    <div id="skills" class="section">
-        <h2>Skills</h2>
-        <ul>
-            <li>Skill 1</li>
-            <li>Skill 2</li>
-            <li>Skill 3</li>
-            <!-- Add more skills as needed -->
-        </ul>
-    </div>
-
-    <div id="contact" class="section">
-        <h2>Contact</h2>
-        <p>Email: <a href="mailto:your.email@example.com">your.email@example.com</a></p>
-        <p>Phone: (123) 456-7890</p>
-        <div class="social-icons">
-            <a href="https://www.linkedin.com/in/yourprofile">LinkedIn</a>
-            <a href="https://github.com/yourusername">GitHub</a>
-            <!-- Add other social profiles -->
+    <!-- Header Section -->
+    <header>
+        <div class="logo">
+            <img src="images/logo.png" alt="MSG EIENDOM Logo">
         </div>
-    </div>
+        <nav>
+            <ul>
+                <li><a href="#home">Hjem</a></li>
+                <li><a href="#about">Om Oss</a></li>
+                <li><a href="#properties">Eiendommer</a></li>
+                <li><a href="#contact">Kontakt</a></li>
+            </ul>
+        </nav>
+    </header>
 
-</div>
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-text">
+            <h1>Velkommen til MSG EIENDOM</h1>
+            <p>Din partner i eiendomsutvikling og investering</p>
+            <a href="#properties" class="btn">Se Eiendommer</a>
+        </div>
+    </section>
 
-<footer>
-    <p>&copy; 2023 Your Name. All rights reserved.</p>
-</footer>
+    <!-- About Section -->
+    <section id="about" class="about">
+        <h2>Om Oss</h2>
+        <p>
+            MSG EIENDOM er et ledende eiendomsselskap med fokus på kvalitet og kundetilfredshet. Vi tilbyr et bredt spekter av eiendomstjenester, inkludert kjøp, salg og utvikling av bolig- og næringseiendommer.
+        </p>
+    </section>
 
+    <!-- Properties Section -->
+    <section id="properties" class="properties">
+        <h2>Våre Eiendommer</h2>
+        <div class="property-list">
+            <!-- Property Item -->
+            <div class="property-item">
+                <img src="images/property1.jpg" alt="Property 1">
+                <h3>Moderne Leilighet i Oslo</h3>
+                <p>Pris: NOK 4,500,000</p>
+                <a href="#" class="btn">Les Mer</a>
+            </div>
+            <!-- Repeat similar blocks for more properties -->
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+        <h2>Kontakt Oss</h2>
+        <div class="contact-info">
+            <p><i class="fas fa-phone"></i> Telefon: +47 123 45 678</p>
+            <p><i class="fas fa-envelope"></i> E-post: <a href="mailto:post@msgeiendom.no">post@msgeiendom.no</a></p>
+            <p><i class="fas fa-map-marker-alt"></i> Adresse: Storgata 15, 0161 Oslo</p>
+        </div>
+        <!-- Contact Form (Optional) -->
+        <form action="#" method="post" class="contact-form">
+            <input type="text" name="name" placeholder="Navn" required>
+            <input type="email" name="email" placeholder="E-post" required>
+            <textarea name="message" placeholder="Melding" required></textarea>
+            <button type="submit" class="btn">Send Melding</button>
+        </form>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2023 MSG EIENDOM. Alle rettigheter reservert.</p>
+    </footer>
+
+    <!-- Link to JavaScript -->
+    <script src="script.js"></script>
 </body>
 </html>
